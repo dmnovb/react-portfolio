@@ -9,6 +9,7 @@ const projects = [
     description:
       "wow armory api for fetching my character's armor in-game, made in laravel. Made for the purpose of testing laravel.",
     stack: "Laravel",
+    link: "https://github.com/dmnovb/wow-character-api",
     getImageSrc: () => require("../images/istockphoto-1147544807-612x612.jpg"),
   },
   {
@@ -16,6 +17,7 @@ const projects = [
     description:
       "Basic to-do app. Can add and delete to-do's. ",
       stack:"Express.js, React.js, MongoDB",
+      link: "https://github.com/dmnovb/todoProject",
     getImageSrc: () => require("../images/todo-app.png"),
   },
   {
@@ -23,13 +25,15 @@ const projects = [
     description:
       "A 'shop' app made with React. Can create and delete items and add them to the shopping cart.",
     stack: "React.js, Express.js, MongoDB, Typescript",
+    link: "https://github.com/dmnovb/react-shop",
     getImageSrc: () => require("../images/react-shop.png"),
   },
   {
     title: "javascript-pong-game",
     description:
       "Pong game, its purpose was for me to see how vanilla js interacts with the dom",
-    stack: "Javascript",
+    stack: "Vanilla javascript",
+    link: "https://github.com/dmnovb/javascript-game",
     getImageSrc: () => require("../images/pong-game.png"),
   },
   {
@@ -37,6 +41,7 @@ const projects = [
     description:
       "weather app for fetching weather, very simple",
     stack: "React.js, Tailwind CSS",
+    link: "https://github.com/dmnovb/weather-app",
     getImageSrc: () => require("../images/weather-app.png"),
   },
  
@@ -45,7 +50,7 @@ const projects = [
 const ProjectsSection = () => {
   return (
     <FullScreenSection
-      backgroundColor="#14532d"
+      backgroundColor="#ad374f"
       isDarkBackground
       p={8}
       alignItems="flex-start"
@@ -66,6 +71,7 @@ const ProjectsSection = () => {
             description={project.description}
             stack={project.stack}
             imageSrc={project.getImageSrc()}
+            projectUrl={project.link}
           />
         ))}
       </Box>

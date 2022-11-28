@@ -9,14 +9,17 @@ import { Box, HStack } from "@chakra-ui/react";
 
 const socials = [
   {
+    id: 1,
     icon: faEnvelope,
     url: "mailto: hello@example.com",
   },
   {
+    id: 2,
     icon: faGithub,
     url: "https://github.com/dmnovb",
   },
   {
+    id: 3,
     icon: faLinkedin,
     url: "https://www.linkedin.com/in/boyan-damyanov-16004224b/",
   },
@@ -56,7 +59,7 @@ const Header = () => {
           <nav>
               <ul>
                 {socials.map(social => (
-                <a style={{margin: '5px'}} href={social.url}><FontAwesomeIcon icon={social.icon} size={'xl'}/></a> 
+                <a key={social.id} style={{margin: '5px'}} href={social.url}><FontAwesomeIcon icon={social.icon} size={'xl'}/></a> 
                 ))}
               </ul>
           </nav> 

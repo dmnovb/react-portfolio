@@ -21,13 +21,26 @@ const LandingSection = () => {
   const {isLoading, response, submit} = useSubmit();
   const { onOpen } = useAlertContext();
 
+
+  const contactSchema = Yup.object({
+    name: Yup.string().required('Name required'),
+    email: Yup.string().email('Invalid email').required('Email required'),
+    message: Yup.string().required('Message required')
+  })
+
   const formik = useFormik({
-    initialValues: {},
-    onSubmit: (values) => {},
-    validationSchema: Yup.object({
-      name: Yup.string().required()
-    }),
+    initialValues: {
+      name: '',
+      email: '',
+      message: ''
+    },
+    onSubmit: (values) => {
+      console.log(values)
+    },
+    validationSchema: {contactSchema},
   });
+
+console.log(contactSchema)
 
   return (
     <FullScreenSection
@@ -61,18 +74,8 @@ const LandingSection = () => {
                 />
                 <FormErrorMessage></FormErrorMessage>
               </FormControl>
-              <FormControl>
-                <FormLabel htmlFor="type">Type of enquiry</FormLabel>
-                <Select id="type" name="type">
-                  <option style={{color: 'black'}} value="hireMe">Freelance project proposal</option>
-                  <option style={{color: 'black'}} value="openSource">
-                    Open source consultancy session
-                  </option>
-                  <option style={{color: 'black'}} value="other">Other</option>
-                </Select>
-              </FormControl>
               <FormControl isInvalid={false}>
-                <FormLabel htmlFor="comment">Your message</FormLabel>
+                <FormLabel id="message" htmlFor="comment">Your message</FormLabel>
                 <Textarea
                   id="comment"
                   name="comment"

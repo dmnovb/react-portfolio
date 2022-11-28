@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
 
-const ProjectCard = ({ title, description, imageSrc, stack }) => {
+const ProjectCard = ({ title, description, imageSrc, stack, projectUrl }) => {
   
   return (
 
@@ -22,11 +22,11 @@ const ProjectCard = ({ title, description, imageSrc, stack }) => {
       <Divider></Divider>
       <Text fontWeight={'bold'} p={'5px'}> Stack: {stack}</Text>
       <Divider></Divider>
-        <Text color='black' fontSize='1xl'>
-        See More 
+      <a href={projectUrl}>  <Text color='black' fontSize='1xl'>
+        See More
         &nbsp;
         <FontAwesomeIcon icon={faArrowRight} size="1x"/>
-        </Text>
+        </Text></a> 
       </CardBody>
   </Card> 
   )

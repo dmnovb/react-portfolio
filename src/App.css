@@ -41,3 +41,7 @@ html {
   }
 }
 
+
+#message {
+  resize: none;
+} 
