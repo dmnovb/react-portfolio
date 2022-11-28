@@ -33,6 +33,7 @@ const LandingSection = () => {
       backgroundColor="#512DA8"
       py={16}
       spacing={8}
+      id='contact-me'
     >
       <VStack w="1024px" p={32} alignItems="flex-start">
         <Heading as="h1" id="contactme-section">

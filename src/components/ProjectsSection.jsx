@@ -5,41 +5,41 @@ import ProjectCard from "./ProjectCard";
 
 const projects = [
   {
-    title: "React Space",
+    title: "wow-character-api",
     description:
-      "Handy tool belt to create amazing AR components in a React app, with redux integration via middleware️",
+      "wow armory api for fetching my character's armor in-game, made in laravel. Made for the purpose of testing laravel.",
+    stack: "Laravel",
     getImageSrc: () => require("../images/photo1.jpg"),
   },
   {
-    title: "React Infinite Scroll",
+    title: "todo-app",
     description:
-      "A scrollable bottom sheet with virtualisation support, native animations at 60 FPS and fully implemented in JS land 🔥️",
+      "Basic to-do app. Can add and delete to-do's. ",
+      stack:"Express.js, React.js, MongoDB",
     getImageSrc: () => require("../images/photo2.jpg"),
   },
   {
-    title: "Photo Gallery",
+    title: "react-shop",
     description:
-      "A One-stop shop for photographers to share and monetize their photos, allowing them to have a second source of income",
+      "A 'shop' app made with React. Can create and delete items and add them to the shopping cart.",
+    stack: "React.js, Express.js, MongoDB, Typescript",
     getImageSrc: () => require("../images/photo3.jpg"),
   },
   {
-    title: "Event planner",
+    title: "javascript-pong-game",
     description:
-      "A mobile application for leisure seekers to discover unique events and activities in their city with a few taps",
+      "Pong game, its purpose was for me to see how vanilla js interacts with the dom",
+    stack: "Javascript",
     getImageSrc: () => require("../images/photo4.jpg"),
   },
   {
-    title: "Event planner",
+    title: "weather-app",
     description:
-      "A mobile application for leisure seekers to discover unique events and activities in their city with a few taps",
+      "weather app for fetchi weather, very simple",
+    stack: "React.js, Tailwind CSS",
     getImageSrc: () => require("../images/photo4.jpg"),
   },
-  {
-    title: "Event planner",
-    description:
-      "A mobile application for leisure seekers to discover unique events and activities in their city with a few taps",
-    getImageSrc: () => require("../images/photo4.jpg"),
-  },
+ 
 ];
 
 const ProjectsSection = () => {
@@ -56,7 +56,7 @@ const ProjectsSection = () => {
       </Heading>
       <Box
         display="grid"
-        gridTemplateColumns="repeat(2,minmax(0,1fr))"
+        gridTemplateColumns="repeat(3,minmax(0,1fr))"
         gridGap={8}
       >
         {projects.map((project) => (
@@ -64,6 +64,7 @@ const ProjectsSection = () => {
             key={project.title}
             title={project.title}
             description={project.description}
+            stack={project.stack}
             imageSrc={project.getImageSrc()}
           />
         ))}
