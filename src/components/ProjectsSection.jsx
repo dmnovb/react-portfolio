@@ -1,7 +1,7 @@
 import React from "react";
 import FullScreenSection from "./FullScreenSection";
 import { Box, Heading } from "@chakra-ui/react";
-import Card from "./Card";
+import ProjectCard from "./ProjectCard";
 
 const projects = [
   {
@@ -21,6 +21,18 @@ const projects = [
     description:
       "A One-stop shop for photographers to share and monetize their photos, allowing them to have a second source of income",
     getImageSrc: () => require("../images/photo3.jpg"),
+  },
+  {
+    title: "Event planner",
+    description:
+      "A mobile application for leisure seekers to discover unique events and activities in their city with a few taps",
+    getImageSrc: () => require("../images/photo4.jpg"),
+  },
+  {
+    title: "Event planner",
+    description:
+      "A mobile application for leisure seekers to discover unique events and activities in their city with a few taps",
+    getImageSrc: () => require("../images/photo4.jpg"),
   },
   {
     title: "Event planner",
@@ -48,7 +60,7 @@ const ProjectsSection = () => {
         gridGap={8}
       >
         {projects.map((project) => (
-          <Card
+          <ProjectCard
             key={project.title}
             title={project.title}
             description={project.description}

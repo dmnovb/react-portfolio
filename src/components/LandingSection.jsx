@@ -15,8 +15,20 @@ const LandingSection = () => (
     isDarkBackground
     backgroundColor="#2A4365"
   >
-
+  <VStack>
+  <Avatar name="bd d" src=""/>
+  <Heading size={'3xl'}>
+    {greeting}
+  </Heading>
+    <Heading size={'xl'}>
+    {bio1}
+    </Heading>
+    <Heading>
+    {bio2}
+    </Heading>
+  </VStack>
   </FullScreenSection>
+
 );
 
 export default LandingSection;
