@@ -21,26 +21,21 @@ const LandingSection = () => {
   const {isLoading, response, submit} = useSubmit();
   const { onOpen } = useAlertContext();
 
-
-  const contactSchema = Yup.object({
-    name: Yup.string().required('Name required'),
-    email: Yup.string().email('Invalid email').required('Email required'),
-    message: Yup.string().required('Message required')
-  })
-
   const formik = useFormik({
     initialValues: {
-      name: '',
+      firstName: '',
       email: '',
-      message: ''
+      comment: ''
     },
-    onSubmit: (values) => {
-      console.log(values)
-    },
-    validationSchema: {contactSchema},
+    onSubmit: (values) => {},
+    validationSchema: Yup.object({
+      firstName: Yup.string().required('Name required'),
+      email: Yup.string().email('Invalid email').required('Email required'),
+      comment: Yup.string().required('Message required')
+    }),
   });
 
-console.log(contactSchema)
+console.log(formik.values)
 
   return (
     <FullScreenSection
@@ -57,29 +52,37 @@ console.log(contactSchema)
         <Box p={6} rounded="md" w="100%">
           <form>
             <VStack spacing={4}>
-              <FormControl isInvalid={false}>
+              <FormControl isInvalid={formik.errors.firstName !== undefined}>
                 <FormLabel htmlFor="firstName">Name</FormLabel>
                 <Input
                   id="firstName"
                   name="firstName"
-                />
-                <FormErrorMessage></FormErrorMessage>
+                  value={formik.values.firstName}
+                  onChange={formik.handleChange}
+                  
+                />                
+                <FormErrorMessage>{formik.errors.firstName}</FormErrorMessage>
               </FormControl>
-              <FormControl isInvalid={false}>
+              <FormControl isInvalid={formik.errors.email !== undefined}>
                 <FormLabel htmlFor="email">Email Address</FormLabel>
                 <Input
                   id="email"
                   name="email"
                   type="email"
+                  onChange={formik.handleChange}
+                  value={formik.values.email}
                 />
-                <FormErrorMessage></FormErrorMessage>
+                <FormErrorMessage>{formik.errors.email}</FormErrorMessage>
               </FormControl>
               <FormControl isInvalid={false}>
-                <FormLabel id="message" htmlFor="comment">Your message</FormLabel>
+                <FormLabel htmlFor="comment">Your message</FormLabel>
                 <Textarea
                   id="comment"
                   name="comment"
                   height={250}
+                  onChange={formik.handleChange}
+                  value={formik.values.comment}
+
                 />
                 <FormErrorMessage></FormErrorMessage>
               </FormControl>
