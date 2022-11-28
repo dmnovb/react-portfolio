@@ -3,9 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import {
   faGithub,
-  faLinkedin,
-  faMedium,
-  faStackOverflow,
+  faLinkedin
 } from "@fortawesome/free-brands-svg-icons";
 import { Box, HStack } from "@chakra-ui/react";
 
@@ -21,14 +19,6 @@ const socials = [
   {
     icon: faLinkedin,
     url: "https://www.linkedin.com",
-  },
-  {
-    icon: faMedium,
-    url: "https://medium.com",
-  },
-  {
-    icon: faStackOverflow,
-    url: "https://stackoverflow.com",
   },
 ];
 
@@ -64,15 +54,17 @@ const Header = () => {
           alignItems="center"
         >
           <nav>
-            <ul>{socials.map(social => {
-              <li>{social.icon} asdf</li>
-            })}
-            </ul>
+              <ul>
+                {socials.map(social => (
+                <a style={{margin: '5px'}} href={social.url}><FontAwesomeIcon icon={social.icon} size={'xl'}/></a> 
+                ))}
+              </ul>
           </nav> 
           <nav>
             <HStack spacing={8}>
               {/* Add links to Projects and Contact me section */}
-              asdf
+              <a href="#">Projects</a> 
+              <a href="#">Contact Me</a> 
             </HStack>
           </nav>
         </HStack>
