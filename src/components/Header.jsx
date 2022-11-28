@@ -14,11 +14,11 @@ const socials = [
   },
   {
     icon: faGithub,
-    url: "https://github.com",
+    url: "https://github.com/dmnovb",
   },
   {
     icon: faLinkedin,
-    url: "https://www.linkedin.com",
+    url: "https://www.linkedin.com/in/boyan-damyanov-16004224b/",
   },
 ];
 
