@@ -9,35 +9,35 @@ const projects = [
     description:
       "wow armory api for fetching my character's armor in-game, made in laravel. Made for the purpose of testing laravel.",
     stack: "Laravel",
-    getImageSrc: () => require("../images/photo1.jpg"),
+    getImageSrc: () => require("../images/istockphoto-1147544807-612x612.jpg"),
   },
   {
     title: "todo-app",
     description:
       "Basic to-do app. Can add and delete to-do's. ",
       stack:"Express.js, React.js, MongoDB",
-    getImageSrc: () => require("../images/photo2.jpg"),
+    getImageSrc: () => require("../images/todo-app.png"),
   },
   {
     title: "react-shop",
     description:
       "A 'shop' app made with React. Can create and delete items and add them to the shopping cart.",
     stack: "React.js, Express.js, MongoDB, Typescript",
-    getImageSrc: () => require("../images/photo3.jpg"),
+    getImageSrc: () => require("../images/react-shop.png"),
   },
   {
     title: "javascript-pong-game",
     description:
       "Pong game, its purpose was for me to see how vanilla js interacts with the dom",
     stack: "Javascript",
-    getImageSrc: () => require("../images/photo4.jpg"),
+    getImageSrc: () => require("../images/pong-game.png"),
   },
   {
     title: "weather-app",
     description:
-      "weather app for fetchi weather, very simple",
+      "weather app for fetching weather, very simple",
     stack: "React.js, Tailwind CSS",
-    getImageSrc: () => require("../images/photo4.jpg"),
+    getImageSrc: () => require("../images/weather-app.png"),
   },
  
 ];

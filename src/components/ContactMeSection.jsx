@@ -24,7 +24,9 @@ const LandingSection = () => {
   const formik = useFormik({
     initialValues: {},
     onSubmit: (values) => {},
-    validationSchema: Yup.object({}),
+    validationSchema: Yup.object({
+      name: Yup.string().required()
+    }),
   });
 
   return (
@@ -62,11 +64,11 @@ const LandingSection = () => {
               <FormControl>
                 <FormLabel htmlFor="type">Type of enquiry</FormLabel>
                 <Select id="type" name="type">
-                  <option value="hireMe">Freelance project proposal</option>
-                  <option value="openSource">
+                  <option style={{color: 'black'}} value="hireMe">Freelance project proposal</option>
+                  <option style={{color: 'black'}} value="openSource">
                     Open source consultancy session
                   </option>
-                  <option value="other">Other</option>
+                  <option style={{color: 'black'}} value="other">Other</option>
                 </Select>
               </FormControl>
               <FormControl isInvalid={false}>
