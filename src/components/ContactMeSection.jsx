@@ -31,11 +31,11 @@ const LandingSection = () => {
     validationSchema: Yup.object({
       firstName: Yup.string().required('Name required'),
       email: Yup.string().email('Invalid email').required('Email required'),
-      comment: Yup.string().required('Message required')
+      comment: Yup.string().min(10, 'Comment is too short.').required('Message required')
     }),
   });
 
-console.log(formik.values)
+console.log(formik.touched)
 
   return (
     <FullScreenSection
@@ -52,43 +52,50 @@ console.log(formik.values)
         <Box p={6} rounded="md" w="100%">
           <form>
             <VStack spacing={4}>
-              <FormControl isInvalid={formik.errors.firstName !== undefined}>
+              <FormControl isInvalid={formik.errors.firstName !== undefined && formik.touched.email}>
                 <FormLabel htmlFor="firstName">Name</FormLabel>
                 <Input
                   id="firstName"
                   name="firstName"
-                  value={formik.values.firstName}
                   onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.firstName}
                   
                 />                
                 <FormErrorMessage>{formik.errors.firstName}</FormErrorMessage>
               </FormControl>
-              <FormControl isInvalid={formik.errors.email !== undefined}>
+
+              <FormControl isInvalid={formik.errors.email !== undefined && formik.touched.email}>
                 <FormLabel htmlFor="email">Email Address</FormLabel>
                 <Input
                   id="email"
                   name="email"
                   type="email"
                   onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
                   value={formik.values.email}
                 />
                 <FormErrorMessage>{formik.errors.email}</FormErrorMessage>
               </FormControl>
-              <FormControl isInvalid={false}>
+              <FormControl isInvalid={formik.errors.comment !== undefined && formik.touched.comment}>
                 <FormLabel htmlFor="comment">Your message</FormLabel>
                 <Textarea
                   id="comment"
                   name="comment"
                   height={250}
                   onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
                   value={formik.values.comment}
 
                 />
-                <FormErrorMessage></FormErrorMessage>
+                <FormErrorMessage>{formik.errors.comment}</FormErrorMessage>
               </FormControl>
-              <Button type="submit" colorScheme="purple" width="full">
+              {!formik.isValid ? <Button disabled colorScheme="purple" width="full">
+                Disabled
+              </Button> : <Button type="submit" colorScheme="purple" width="full">
                 Submit
-              </Button>
+              </Button>}
+              
             </VStack>
           </form>
         </Box>
